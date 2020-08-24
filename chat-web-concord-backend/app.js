@@ -2,8 +2,11 @@ import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import path from 'path'
+import mongoose from 'mongoose'
 
 const app = express()
+const uri = 'mongodb://localhost:27017/condorian'
+const options = { useNewUrlParser: true, useCreateIndex: true }
 
 // Middleware
 app.use(morgan('tiny'))
@@ -24,5 +27,14 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.set('port', process.env.PORT || 3000)
 app.listen(app.get('port'), () => {
-  console.log('Example app listening on port' + app.get('port'))
+  console.log('Example app listening on port ' + app.get('port'))
 })
+
+mongoose.connect(uri, options).then(
+  () => {
+    console.log('DB Connected')
+  },
+  (err) => {
+    console.log(err)
+  }
+)
