@@ -2,6 +2,20 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
+        <!-- <BaseDialog v-model="baseDialog">
+          <template slot="title">
+            <component
+              :is="dialogTitleComponent"
+              @close="baseDialog = false"
+            ></component>
+          </template>
+        </BaseDialog> -->
+
+        <!-- <v-btn color="primary" @click="baseDialog = true">Open</v-btn>
+        <v-btn color="secondary" @click="change">{{
+          dialogTitleComponent.name
+        }}</v-btn> -->
+
         <v-img
           :src="require('../assets/logo.svg')"
           class="my-3"
@@ -86,6 +100,7 @@ export default {
   name: 'HelloWorld',
 
   data: () => ({
+    dialogTitleComponent: TestHeader,
     ecosystem: [
       {
         text: 'vuetify-loader',
@@ -135,7 +150,9 @@ export default {
         text: 'Frequently Asked Questions',
         href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions'
       }
-    ]
-  })
+    ],
+    baseDialog: false
+  }),
+  components: {}
 }
 </script>

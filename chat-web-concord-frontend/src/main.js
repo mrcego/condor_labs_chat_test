@@ -9,11 +9,13 @@ import '@mdi/font/css/materialdesignicons.css'
 
 import AuthLayout from './layouts/Auth'
 import ChatLayout from './layouts/Chat'
+import TheBaseDialog from './components/TheBaseDialog'
 
 Vue.config.productionTip = false
 
 Vue.component('AuthLayout', AuthLayout)
 Vue.component('ChatLayout', ChatLayout)
+Vue.component('TheBaseDialog', TheBaseDialog)
 
 new Vue({
   router,
