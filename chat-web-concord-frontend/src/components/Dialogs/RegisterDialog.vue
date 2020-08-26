@@ -1,11 +1,12 @@
 <template>
   <div>
-    <v-toolbar color="primary" dark flat dense class="elevation-3">
-      <v-toolbar-title>Register</v-toolbar-title>
+    <v-toolbar dark flat dense class="elevation-3">
+      <v-toolbar-title class="secondary--text">Register</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
       <v-form ref="registerForm" v-model="formValidity">
         <v-text-field
+          color="black"
           v-model="username"
           label="Username"
           prepend-inner-icon="mdi-account"
@@ -19,6 +20,7 @@
           dense
         ></v-text-field>
         <v-text-field
+          color="black"
           v-model="email"
           label="E-mail"
           prepend-inner-icon="mdi-email"
@@ -32,6 +34,7 @@
           dense
         ></v-text-field>
         <v-text-field
+          color="black"
           v-model="password"
           id="password"
           label="Password"
@@ -47,6 +50,7 @@
           dense
         ></v-text-field>
         <v-text-field
+          color="black"
           v-model="passwordConfirmation"
           id="passwordConfirmation"
           label="Confirm password"
@@ -71,8 +75,8 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn outlined color="primary" @click="closeDialog">Cancel</v-btn>
-      <v-btn :disabled="!formValidity" color="primary">Register</v-btn>
+      <v-btn outlined @click="closeDialog">Cancel</v-btn>
+      <v-btn :disabled="!formValidity">Register</v-btn>
     </v-card-actions>
   </div>
 </template>

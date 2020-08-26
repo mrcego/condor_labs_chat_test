@@ -10,12 +10,15 @@
     <v-row align="center" justify="center">
       <v-col cols="12" sm="8" md="4">
         <v-card class="elevation-3">
-          <v-toolbar color="primary" dark flat dense class="elevation-3">
-            <v-toolbar-title>Condorian Corporate - Login</v-toolbar-title>
+          <v-toolbar color="#363636" dark flat dense class="elevation-3">
+            <v-toolbar-title class="secondary--text"
+              >Condorian Corporate - Login</v-toolbar-title
+            >
           </v-toolbar>
           <v-card-text class="pb-0">
             <v-form ref="loginForm" v-model="formValidity">
               <v-text-field
+                color="#363636"
                 v-model="user"
                 label="E-mail"
                 prepend-inner-icon="mdi-account"
@@ -30,6 +33,7 @@
               ></v-text-field>
 
               <v-text-field
+                color="#363636"
                 v-model="password"
                 id="password"
                 label="Password"
@@ -48,8 +52,8 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn outlined color="primary" @click="openDialog">Register</v-btn>
-            <v-btn :disabled="!formValidity" color="primary">Let's go!</v-btn>
+            <v-btn outlined @click="openDialog">Register</v-btn>
+            <v-btn :disabled="!formValidity">Let's go!</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
