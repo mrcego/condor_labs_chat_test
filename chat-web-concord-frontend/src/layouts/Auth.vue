@@ -6,7 +6,7 @@
 
 <style scoped>
 ::v-deep.container {
-  background: url('./../assets/wave.svg') 50% 35em no-repeat fixed;
+  background: url('./../assets/wave.svg') 50% 33em no-repeat fixed;
 }
 
 @media screen and (max-width: 600px) {
