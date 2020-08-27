@@ -12,8 +12,12 @@
       <v-divider></v-divider>
 
       <v-list dense nav>
-        <v-list-item v-for="(item, index) in actions" :key="index">
-          <v-list-item-action @click="drawer = !drawer">
+        <v-list-item
+          v-for="(item, index) in actions"
+          :key="index"
+          @click="drawer = !drawer"
+        >
+          <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
 
@@ -75,25 +79,52 @@
             ></v-text-field>
           </v-col>
         </v-list>
-        <v-list two-line class="pt-0" max-height="200">
+        <v-list two-line class="pt-0" max-height="500">
           <v-list-item-group active-class="secondary--text">
             <template v-for="(item, index) in items">
-              <v-list-item :key="item.title" @click="drawer = !drawer">
-                <template>
-                  <v-list-item-avatar size="64">
+              <v-list-item :key="index" @click="drawer = !drawer">
+                <v-badge
+                  v-if="item.status"
+                  class="mr-2"
+                  bordered
+                  bottom
+                  :color="item.status"
+                  dot
+                  offset-x="15"
+                  offset-y="10"
+                >
+                  <v-avatar size="60">
                     <v-img :src="item.avatar"></v-img>
-                  </v-list-item-avatar>
-                  <v-list-item-content>
-                    <v-list-item-title v-text="item.title"></v-list-item-title>
-                    <v-list-item-subtitle
-                      v-text="item.action"
-                    ></v-list-item-subtitle>
-                    <v-list-item-subtitle
-                      class="text--primary"
-                      v-text="item.subtitle"
-                    ></v-list-item-subtitle>
-                  </v-list-item-content>
-                </template>
+                  </v-avatar>
+                </v-badge>
+                <v-list-item-avatar class="mr-2" size="60" v-else>
+                  <v-img :src="item.avatar"></v-img>
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.title"></v-list-item-title>
+                  <v-list-item-subtitle
+                    v-text="item.action"
+                  ></v-list-item-subtitle>
+                  <v-list-item-subtitle
+                    class="text--primary"
+                    v-text="item.subtitle"
+                  ></v-list-item-subtitle>
+                </v-list-item-content>
+                <v-list-item-icon v-if="item.notifications > 0">
+                  <v-avatar
+                    color="yellow darken-2"
+                    class="white--text"
+                    size="24"
+                    rounded
+                  >
+                    <span style="font-size: 12px">{{
+                      item.notifications
+                    }}</span>
+                  </v-avatar>
+                  <!-- <v-chip color="yellow darken-2" class="black--text" small>
+                    
+                  </v-chip> -->
+                </v-list-item-icon>
               </v-list-item>
 
               <v-divider
@@ -123,57 +154,69 @@ export default {
     items: [
       {
         avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+        status: 'green',
         action: '15 min ago',
         headline: 'Brunch this weekend?',
         title: 'Ali Connors',
         subtitle:
-          "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?"
+          "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
+        notifications: 10
       },
       {
         avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
         action: '2 hr ago',
         headline: 'Summer BBQ',
         title: 'me, Scrott, Jennifer',
-        subtitle: "Wish I could come, but I'm out of town this weekend."
+        subtitle: "Wish I could come, but I'm out of town this weekend.",
+        notifications: 3
       },
       {
         avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
         action: '6 hr ago',
         headline: 'Oui oui',
         title: 'Sandra Adams',
-        subtitle: 'Do you have Paris recommendations? Have you ever been?'
+        subtitle: 'Do you have Paris recommendations? Have you ever been?',
+        notifications: 0
       },
       {
         avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+        status: 'secondary',
         action: '12 hr ago',
         headline: 'Birthday gift',
         title: 'Trevor Hansen',
         subtitle:
-          'Have any ideas about what we should get Heidi for her birthday?'
+          'Have any ideas about what we should get Heidi for her birthday?',
+        notifications: 2
       },
       {
         avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
         action: '18hr ago',
         headline: 'Recipe to try',
         title: 'Britta Holt',
+        status: 'green',
         subtitle:
-          'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+          'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+        notifications: 0
       },
       {
         avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
         action: '12 hr ago',
         headline: 'Birthday gift',
         title: 'Trevor Hansen',
+        status: 'secondary',
         subtitle:
-          'Have any ideas about what we should get Heidi for her birthday?'
+          'Have any ideas about what we should get Heidi for her birthday?',
+        notifications: 0
       },
       {
         avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+        status: 'green',
         action: '18hr ago',
         headline: 'Recipe to try',
         title: 'Britta Holt',
         subtitle:
-          'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+          'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+        notifications: 5
       }
     ]
   })
