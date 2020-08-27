@@ -72,7 +72,7 @@
           <v-col>
             <v-text-field
               hide-details
-              color="secondary"
+              color="black"
               filled
               label="Search here..."
               prepend-inner-icon="mdi-magnify"
@@ -112,7 +112,7 @@
                 </v-list-item-content>
                 <v-list-item-icon v-if="item.notifications > 0">
                   <v-avatar
-                    color="yellow darken-2"
+                    color="secondary"
                     class="white--text"
                     size="24"
                     rounded
